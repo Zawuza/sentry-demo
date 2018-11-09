@@ -132,10 +132,6 @@
             <Form>Form1</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="dependencies\uHMAC.pas"/>
-        <DCCReference Include="dependencies\uRavenClient.pas"/>
-        <DCCReference Include="dependencies\uRavenConnection.pas"/>
-        <DCCReference Include="dependencies\uEvent.pas"/>
         <DCCReference Include="SentryExceptionHandler.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

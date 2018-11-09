@@ -3,11 +3,7 @@ program sentrycrashme;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fMain in 'fMain.pas' {Form1},
-  uHMAC in 'dependencies\uHMAC.pas',
-  uRavenClient in 'dependencies\uRavenClient.pas',
-  uRavenConnection in 'dependencies\uRavenConnection.pas',
-  uEvent in 'dependencies\uEvent.pas',
+  fMain in 'fMain.pas' {Form1} ,
   SentryExceptionHandler in 'SentryExceptionHandler.pas';
 
 {$R *.res}
@@ -15,11 +11,16 @@ uses
 var
   LHandler: TSentryExceptionHandler;
 
+const
+  DSN = 'https://56b96e74b3614c93a47efc99c91a076c@sentry.io/1312912';
+
 begin
-  LHandler := TSentryExceptionHandler.Create;
+  LHandler := TSentryExceptionHandler.Create
+    ( { Your DSN goes here, mine is deactivated } DSN);
 
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
   Application.OnException := LHandler.OnException;
   Application.Run;
+
 end.
