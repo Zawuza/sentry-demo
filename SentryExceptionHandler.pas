@@ -5,19 +5,19 @@ interface
 uses
   System.SysUtils,
 
-  FMX.Dialogs,
-
-  uRavenClient;
+  FMX.Dialogs;
 
 type
   TSentryExceptionHandler = class
   private
-    FRaven: TRavenClient;
   public
     constructor Create;
     procedure OnException(ASender: TObject; AE: Exception);
     destructor Destroy; override;
   end;
+
+const
+  DSN = 'https://56b96e74b3614c93a47efc99c91a076c@sentry.io/1312912';
 
 implementation
 
@@ -25,18 +25,17 @@ implementation
 
 constructor TSentryExceptionHandler.Create;
 begin
-  FRaven := TRavenClient.Create;
+
 end;
 
 destructor TSentryExceptionHandler.Destroy;
 begin
-  FreeAndNil(FRaven);
-  inherited;
+
 end;
 
 procedure TSentryExceptionHandler.OnException(ASender: TObject; AE: Exception);
 begin
-  FRaven.sendException(AE);
+
 end;
 
 end.
