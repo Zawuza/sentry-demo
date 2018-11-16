@@ -12,11 +12,11 @@ var
   LHandler: TSentryExceptionHandler;
 
 const
-  DSN = 'https://56b96e74b3614c93a47efc99c91a076c@sentry.io/1312912';
+  DSN = 'Your DSN';
 
 begin
   LHandler := TSentryExceptionHandler.Create
-    ( { Your DSN goes here, mine is deactivated } DSN);
+    (DSN);
 
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
